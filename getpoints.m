@@ -1,5 +1,7 @@
+% read image file and click the edge of image using your mouse
+% get x, y position value and save the position value
 image = input("Type image name: ", 's');
-im = imread(image+".jpeg");
+im = imread("images/"+image+".jpeg");
 imshow(im)
 h = drawassisted;
 x = (h.Position(:,1))';

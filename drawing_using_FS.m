@@ -1,4 +1,4 @@
-%% init
+%% load mat file and initialize
 clear;                                  
 close all;                              
 
