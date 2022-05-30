@@ -7,8 +7,8 @@ load(mat_name+".mat", 'x', 'y', 't');
 x_component = x;
 y_component = y;
 dt = t(2) - t(1);                       
-num_sample = size(t, 2);                 
-T = dt * num_sample;                  
+num_sample = length(t);        
+T = dt * num_sample;               
 %% Obtain Fourier Series
 % set N
 N = 100;
@@ -16,7 +16,7 @@ N = 100;
 % x component
 figure(1);      movegui('northwest');
 % append a0
-x = 1/T*x_component*ones(size(t))'*dt*ones(size(t));
+x = 1/T*x_component*dt*ones(length(t),1);
 w0 = 2*pi/T;
 for n = 1:N
    c = cos(n*w0*t);
@@ -32,7 +32,7 @@ for n = 1:N
    xlabel('time(s)');
    ylabel('x(t)');
    title("x component of the image (n="+num2str(n)+")");
-   pause(0.05);
+   pause(0.02);
    hold off;
 end
 hold on;
@@ -42,7 +42,7 @@ hold off;
 
 % y component
 % append a0
-y = 1/T*y_component*ones(size(t))'*dt*ones(size(t));
+y = 1/T*y_component*dt*ones(length(t),1);
 w0 = 2*pi/T;
 for n = 1:N
    c = cos(n*w0*t);
@@ -58,7 +58,7 @@ for n = 1:N
    xlabel('time(s)');
    ylabel('y(t)');
    title("y component of the image (n="+num2str(n)+")");
-   pause(0.05);
+   pause(0.02);
    hold off;
 end
 hold on;
