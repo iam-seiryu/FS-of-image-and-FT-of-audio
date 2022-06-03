@@ -1,5 +1,5 @@
 % discrete fourier transform of audio
-
+% eliminate noise which is high frequency signal
 %% load mat file and initialize
 clear;                                  
 close all;                              
@@ -77,14 +77,3 @@ sound(y, Fs);
 pause(3)
 sound(y-f_vec_filtered, Fs);
 audiowrite(mat_name+"_res.wav",audio_wo_noise,Fs)
-%% FFT of audio
-plot(y);
-fft_y = fft(y);
-% mid = length(y)/2;
-% N = length(y)*4/10;
-% fft_y(mid-N:mid+N) = 0;
-plot(real(fft_y));
-
-y = ifft(fft_y);
-% plot(y);
-% sound(y,Fs)
